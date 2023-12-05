@@ -6,7 +6,7 @@
 
 ![Nutrition Analysis](https://github.com/OlaCharn/react-nutrition-analysis-api-edamam/blob/main/src/screenshot.png?raw=true)
 
-⭐ Deployed at: (<>)
+⭐ Deployed at: (<https://nutrition-analysis-api.netlify.app/>)
 
 ## 🚀Getting Started 
 
