@@ -1,20 +1,20 @@
 # 🥑 Nutrition Analysis
 
-This app is made with
-POST API https://edamam.com/edamam-nutrition-api
+>This app is made with
+>POST API https://edamam.com/edamam-nutrition-api
 
 
-![NA](https://github.com/OlaCharn/react-nutrAnalysis-alla/blob/main/src/screenshot.png?raw=true)
+![Nutrition Analysis](https://github.com/OlaCharn/react-nutrition-analysis-api-edamam/blob/main/src/screenshot.png?raw=true)
 
 ⭐ Deployed at: (<>)
 
 ## 🚀Getting Started 
 
 clone this repository to your computer:
-> git clone https://github.com/OlaCharn/react-todo-list.git
+> git clone https://github.com/OlaCharn/react-nutrition-analysis-api-edamam.git
  
  navigate to the project directory
-> cd react-todo-list
+> cd react-nutrition-analysis-api-edamam
 
 install dependencies using npm
 
