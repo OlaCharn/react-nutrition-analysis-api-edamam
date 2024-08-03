@@ -4,9 +4,9 @@
 >POST API https://edamam.com/edamam-nutrition-api
 
 
-![Nutrition Analysis](https://github.com/OlaCharn/react-nutrition-analysis-api-edamam/blob/main/src/screenshot.png?raw=true)
+![Nutrition Analysis](https://raw.githubusercontent.com/OlaCharn/react-nutrition-analysis-api-edamam/main/src/screenshot.png)
 
-⭐ Deployed at: (<>)
+⭐ Deployed at: (<https://nutrition-analysis-api.netlify.app/>)
 
 ## 🚀Getting Started 
 

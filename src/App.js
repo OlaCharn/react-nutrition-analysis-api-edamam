@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { Nutrition } from "./Nutrition";
 import { LoaderPage } from "./LoaderPage";
 import './App.css';
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import Swal from "sweetalert2";
@@ -11,25 +10,9 @@ import Swal from "sweetalert2";
 
 function App() {
 
-  // -- добавляем состояние на графу поиск
-  //иы должны создать состояние, которое будет содержать поиск
-  //и по мере того, как мы будем добавлять буквы, у нас будет меняться состояние
-  //у нас будет несколько состояний
-  //первое состояние - поиск по буквам
-  // добавояем value={mySearch} мы хотим видеть изменение каждый раз
-  //мы хзотим не проосто его видеть, но и менять =>
-  //прописываем SetMySearch(e.target.value)
-
   const [mySearch, setMySearch] = useState();
-
-  //устанавливаем "первое слово" в строке input. И оно "пустое" (в Api Search Recipe тут было "avocado")
   const [wordSubmitted, setWordSubmitted] = useState('');
-
- //myNutrition "пустое" ; setMyNutrition - это наша data в API
   const [myNutrition, setMyNutrition] = useState();
-
-  //ставим Loader. При этом его первоначальное состояние - "отключено"
-  //setStateLoader - тут меняем его состояние уже в API функции
   const [stateLoader, setStateLoader] = useState(false);
 
   //наш ID, KEY - только наши, сгенерированные на сайте edamam
@@ -39,7 +22,7 @@ function App() {
 
  //функция для API
   const fetchData = async (ingr) => {
-    setStateLoader(true); //запускаем Loader на время ожидания ответа
+    setStateLoader(true); 
 
     //наш API запрос - POSt, поэтому нужно headers, body, method
     const response = await fetch(`${APP_URL}?app_id=${APP_ID}&app_key=${APP_KEY}`, {
@@ -50,36 +33,23 @@ function App() {
       },
       body: JSON.stringify({ ingr: ingr })
     })
-   // если ответ оk, то
-   //Loader не нужен , т.е. равен false
-   // получаем данные
-   // отражаем полученные данные в нашем состоянии
-   // Или
-   //Loader не нужен , т.е. равен false
-   //показать alert , что неверно введены названия ингридиентов
 
     if(response.ok) {
-      setStateLoader(false); //Loader не нужен
-      const data = await response.json(); //преобразуем данные с помощью json()
-      //console.log(data) 
-      setMyNutrition(data); //отражаем данные
+      setStateLoader(false); 
+      const data = await response.json(); 
+      setMyNutrition(data); 
     } else {
-      setStateLoader(false); ////Loader не нужен, потому что ингредиент введен неверно и нет получения ответа
+      setStateLoader(false); 
       Swal.fire({
         title: "Ooops!",
         text: "Please enter the ingredients correctly",
         icon: "warning",
         confirmButtonColor: "#dfa909",
       });
-      //alert('ingredients entered incorrectly'); //выводим алерт
     }
   }
 
   const myRecipeSearch = e => {
-      //-- получаем доступ к тому, что вводит пользователь
-      //вводим атрибут onChange
-      //и приравниваем его к myRecipeSearch
-      //создаем его myRecipeSearch стрелочной функцией
     setMySearch(e.target.value);
   }
 
@@ -91,22 +61,11 @@ function App() {
   useEffect(() => {
     if (wordSubmitted !== '') {
       let ingr = wordSubmitted.split(/[,,;,\n,\r]/); 
-      //метод split() и регулярное выражение, которое поможет получить из строки массив
-      //split(/,|-/) - это регулярное выражение
-      //в этом регулярном выражении мы указали разделители, которые необходимо учесть - запятая и точка с запяирй
-      //то есть мы получаем массив без этих знаков 
-      //console.log(ingr)
       fetchData(ingr);
     }
   }, [wordSubmitted]) 
-  //наш [] мы должны связать с конкретным состоянием. Поэтому запоняем его с wordSubmitted. 
-  //это то, что мы ввели и подтвердили окончательно
 
 
-  // Определите желаемый порядок меток
-  //используем map, чтобы проходить через этот массив 
-  //и выводить элементы в том порядке, который определили. 
-  //Если какой-то элемент не найден в данных, мы используем find и if для пропуска его.
 const labelsOrder = [
   'Protein',
   'Carbohydrates (net)',
@@ -149,26 +108,19 @@ const labelsOrder = [
   return (
     <div className="App container" >
       {stateLoader && <LoaderPage />}
-
       <h1 className="hOne">Nutrition Analysis</h1>
-      
         <form onSubmit={finalSearch} className="formBlock" >
-
-
-            <div className="inputBlock">
-              <input
+          <div className="inputBlock">
+            <input
               className="input"
-                placeholder="Search..."
-                onChange={myRecipeSearch}
-              />
-              <p className="inputHelpBloc">Please type the quantity (pcs, g, kg) and the product name.</p>
-  
-            </div>
-  
-            <Button type="submit" variant="warning" size="lm" id="button-addon2" className="btn">Search</Button>
-        
+              placeholder="Search..."
+              onChange={myRecipeSearch}
+            />
+            <p className="inputHelpBloc">Please type the quantity (pcs, g, kg) and the product name.</p>
+          </div>
+          <Button type="submit" variant="warning" size="lm" id="button-addon2" className="btn">Search</Button>
         </form>
-        <div className="container">
+    <div className="container">
   <div>
     {
       myNutrition && <p className="Calories"> Calories {myNutrition.calories} </p>
@@ -202,13 +154,11 @@ const labelsOrder = [
     }
   </div>
 </div>
-
-      </div>
-  );
+</div>
+);
 }
 
 export default App;
 
-/* const ClassCss= label==="Energy" ? "red" : "black" */
 
 
