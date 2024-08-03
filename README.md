@@ -29,9 +29,9 @@ The app will be available at [http://localhost:3000](http://localhost:3000) in y
 
 ## 👍Usage 
 
-### 1.**Enter quantity and product.** 
+### 1.  **Enter quantity and product.** 
 For example enter in the input field at the top of the application: 2 eggs, 100 g milk and press "Search" or press the Enter key.
-### 2.  **Now you can see all nutrients in your meal or in your product :** 
+### 2.  **Now you can see all nutrients in your meal or in your product** 
 ### 3.  **Enjoy!** 
 
 🧡Feel free to create issues and contributions for features or bugs to this project.🧡
